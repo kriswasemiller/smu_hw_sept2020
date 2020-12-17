@@ -47,7 +47,7 @@ class SQLHelper():
     def get_tobs_for_most_active(self):
 
         query = ""
-        with open("queries/lastYearTobsMostActive.sql", "r") as f:
+        with open("queries/lastYearMostActiveTempOBS.sql", "r") as f:
             query = f.read()
 
         conn = self.engine.connect()
@@ -56,7 +56,7 @@ class SQLHelper():
 
         return df
 
-    # date must be in format YYYY-MM-DD
+    # date format YYYY-MM-DD
     def get_temp_data_for_date_range(self, start_date, end_date):
         query = f"""
                 SELECT
@@ -76,7 +76,7 @@ class SQLHelper():
 
         return df
 
-    # date must be in format YYYY-MM-DD
+    # date format YYYY-MM-DD
     def get_temp_data_for_date(self, start_date):
         query = f"""
                 SELECT
